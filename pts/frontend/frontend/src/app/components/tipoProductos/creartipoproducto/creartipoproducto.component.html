@@ -1,0 +1,34 @@
+<div class="card">
+    <p-table [paginator]="true" [rows]="5" [value]="mostrar" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+
+            
+<div class="card flex justify-content-center">
+    <p-button (click)="showDialog()" icon="pi pi-external-link" label=" Agregar tipo producto"></p-button>
+    <p-dialog header="Agregar Tipo producto" [(visible)]="visible" [style]="{width: '50vw'}">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form">
+            <label for="nombre">Nombre:</label>
+            <input placeholder="nombre" type="text" id="nombre" formControlName="nombre" />
+          
+          
+            <button type="submit">Guardar Tipo Producto</button>
+          </form>
+          
+         
+    </p-dialog>
+</div>
+            <tr>
+               
+                <th>nombre</th>
+               
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-usuario>
+            <tr>
+             
+                <td>{{ usuario.nombre }}</td>
+                
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

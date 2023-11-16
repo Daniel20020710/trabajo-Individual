@@ -1,0 +1,52 @@
+<div class="card">
+    <p-table [paginator]="true" [rows]="5" [value]="producto" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+
+            
+<div class="card flex justify-content-center">
+    <p-button (click)="showDialog()" icon="pi pi-external-link" label=" Agregar Producto"></p-button>
+    <p-dialog header="Agregar Producto" [(visible)]="visible" [style]="{width: '50vw'}">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form">
+            <label for="nombre">Nombre:</label>
+            <input placeholder="nombre" type="text" id="nombre" formControlName="nombre" />
+          
+            <label for="marca">Marca:</label>
+            <input placeholder="marca" type="text" id="marca" formControlName="marca" />
+          
+            <label for="telefono">Precio:</label>
+            <input placeholder="precio" type="text" id="telefono" formControlName="telefono" />
+
+            <label for="correo">StockMin:</label>
+            <input placeholder="stockmin" type="text" id="correo" formControlName="correo" />
+
+            <label for="telefono">Cantidad:</label>
+            <input placeholder="cantidad" type="text" id="password" formControlName="password">
+          
+            <button type="submit">Guardar Producto</button>
+          </form>
+          
+         
+    </p-dialog>
+</div>
+<tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Marca</th>
+    <th>Precio</th>
+    <th>Stockmin</th>
+    <th>Cantidad</th>
+    
+</tr>
+</ng-template>
+<ng-template pTemplate="body" let-producto>
+<tr>
+    <td>{{producto.id}}</td>
+    <td>{{producto.nombre}}</td>
+    <td>{{producto.marca}}</td>
+    <td>{{producto.precio}}</td>
+    <td>{{producto.stockmin}}</td>
+    <td>{{producto.cantidad}}</td>
+</tr>
+</ng-template>
+    </p-table>
+</div>
